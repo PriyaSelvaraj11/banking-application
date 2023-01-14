@@ -24,8 +24,8 @@ A simple banking application built using **NodeJS, Sequelize ORM and PostgresSQL
     docker-compose down
 
 **Commands for initial app setup**
-docker-compose up
-npx sequelize-cli db:migrate
+1. docker-compose up
+2. npx sequelize-cli db:migrate
 
 **Commands for the application**
 1. run the app:
