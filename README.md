@@ -18,17 +18,17 @@ A simple banking application built using **NodeJS, Sequelize ORM and PostgresSQL
 2. Docker
 
 **Command for the docker**
-1. start the docker
+1. start the docker:
     docker-compose up
-2. stop the docker
+2. stop the docker:
     docker-compose down
 
 **Commands to start the application**
-1. run the app
+1. run the app:
     npm run start
-2. run the tests
+2. run the tests:
     npm run test
-2. check the code coverage
+2. check the code coverage:
     npm run test:coverage
 
 **Code coverage stats**
