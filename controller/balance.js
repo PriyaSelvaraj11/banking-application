@@ -1,22 +1,25 @@
 const Joi = require('joi');
 const { balanceRequestBuilder } = require('../utils/requestBuilder');
 const { BalanceRequestSchema } = require('../validators/commands');
-const { getAccountBalance } = require('../service/account');
+const { getAccountBalance } = require('../service/manage-account');
 
-const getAccountBalance = async (args) => {
+/**
+ * Controller to retrieve account balance by account Id
+ * @param {array} args 
+ * @returns account balance
+ */
+const getBalance = async (args) => {
     try {
         const requestPayload = balanceRequestBuilder(args);
         const validateResponse = await BalanceRequestSchema.validate(requestPayload);
-        if(validateResponse.value) {
-            const { accountNumber } = validateResponse.value;
-            const accountBalanceResponse = await getAccountBalance(accountNumber);
-            return accountBalanceResponse;
-        } else {
-            throw new Error(validateResponse.error);
-        }
-    } catch(e) {
-        console.log(e);
+        if (validateResponse.error) throw new Error(validateResponse.error);
+
+        const { accountId } = validateResponse.value;
+        const accountBalanceResponse = await getAccountBalance(accountId);
+        return accountBalanceResponse;
+    } catch (exception) {
+        return exception.message;
     }
 }
 
-module.exports =  getAccountBalance;
+module.exports = getBalance;

@@ -1,4 +1,4 @@
-const ErrorConstants = require('../constants/errorCodes');
+const ErrorConstants = require('../constants/errorConstants');
 
 const createRequestBuilder = (args) => {
     if(!args || !args.length) throw new Error(ErrorConstants.INVALID_PARAMATERS);
@@ -10,7 +10,7 @@ const createRequestBuilder = (args) => {
 const depositRequestBuilder = (args) => {
     if(!args || !args.length) throw new Error(ErrorConstants.INVALID_PARAMATERS);
     return {
-        accountNumber: args[0],
+        accountId: args[0],
         amount: args[1],
     }
 }
@@ -18,7 +18,7 @@ const depositRequestBuilder = (args) => {
 const withdrawRequestBuilder = (args) => {
     if(!args || !args.length) throw new Error(ErrorConstants.INVALID_PARAMATERS);
     return {
-        accountNumber: args[0],
+        accountId: args[0],
         amount: args[1],
     }
 }
@@ -26,7 +26,16 @@ const withdrawRequestBuilder = (args) => {
 const balanceRequestBuilder = (args) => {
     if(!args || !args.length) throw new Error(ErrorConstants.INVALID_PARAMATERS);
     return {
-        accountNumber: args[0],
+        accountId: args[0],
+    }
+}
+
+const transferRequestBuilder = (args) => {
+    if(!args || !args.length) throw new Error(ErrorConstants.INVALID_PARAMATERS);
+    return {
+        sourceAccountId: args[0],
+        destinationAccountId: args[1],
+        amount: args[2],
     }
 }
 
@@ -35,4 +44,5 @@ module.exports = {
     withdrawRequestBuilder,
     depositRequestBuilder,
     balanceRequestBuilder,
+    transferRequestBuilder,
 };

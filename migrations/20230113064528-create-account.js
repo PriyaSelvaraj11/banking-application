@@ -2,12 +2,13 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Accounts', {
+    await queryInterface.createTable('Account', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        initialAutoIncrement: 1000
       },
       user_id: {
         type: Sequelize.INTEGER
@@ -25,12 +26,12 @@ module.exports = {
       }
     });
 
-    await queryInterface.addConstraint("Accounts", {
+    await queryInterface.addConstraint("Account", {
       fields: ["user_id"],
       type: "foreign key",
       name: "accounts_fk_1",
       references: {
-        table: "Users",
+        table: "User",
         field: "id",
       },
       onDelete: "CASCADE",
@@ -38,6 +39,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Accounts');
+    await queryInterface.dropTable('Account');
   }
 };

@@ -1,25 +1,21 @@
 'use strict';
-const Accounts = require("./accounts");
+const moment = require('moment');
+const Account = require("./account");
 
 const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class AccountCounters extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+  class TransactionCounter extends Model {
     static associate(models) {
       // define association here
     }
   }
-  AccountCounters.init({
+  TransactionCounter.init({
     account_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: Accounts,
+        model: Account,
         key: 'id'
       }
     },
@@ -31,10 +27,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       defaultValue: 0,
     },
-    date: DataTypes.DATEONLY,
+    record_date: {
+      type: DataTypes.DATEONLY,
+      get: function () {
+        return moment(this.getDataValue('date')).format('YYYY-MM-DD');
+      }
+    }
   }, {
     sequelize,
-    modelName: 'AccountCounters',
+    modelName: 'TransactionCounter',
+    freezeTableName: true,
   });
-  return AccountCounters;
+  return TransactionCounter;
 };

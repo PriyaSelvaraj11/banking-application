@@ -11,14 +11,6 @@ const db = {};
 
 let sequelize = new Sequelize(config.database, config.username, config.password, config);
 
-// // load models                 
-// var models = [                 
-//   'Users',  
-//   'Users',           
-// ];
-// models.forEach(function(model) {
-//   module.exports[model] = sequelize.import(__dirname + '/' + model);
-// });
 fs
   .readdirSync(__dirname)
   .filter(file => {

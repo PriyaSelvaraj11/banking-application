@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test": "jest"
+    "start": "node index.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage --coverageReporters='text-summary'"
   },
   "dependencies": {
     "@babel/core": "^7.20.12",
@@ -13,6 +15,7 @@
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.28.0",
-    "sequelize-cli": "^6.5.2"
+    "sequelize-cli": "^6.5.2",
+    "moment": "^2.29.4"
   }
 }

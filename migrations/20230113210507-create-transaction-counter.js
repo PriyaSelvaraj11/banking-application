@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Transactions', {
+    await queryInterface.createTable('TransactionCounter', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -13,11 +13,16 @@ module.exports = {
       account_id: {
         type: Sequelize.INTEGER
       },
-      transaction_type: {
-        type: Sequelize.INTEGER
+      deposits_count: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
       },
-      payload: {
-        type: Sequelize.JSON
+      withdrawals_count: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+      },
+      record_date: {
+        type: Sequelize.DATEONLY
       },
       createdAt: {
         allowNull: false,
@@ -29,18 +34,18 @@ module.exports = {
       }
     });
 
-    await queryInterface.addConstraint("Transactions", {
+    await queryInterface.addConstraint("TransactionCounter", {
       fields: ["account_id"],
       type: "foreign key",
-      name: "transactions_fk_1",
+      name: "counters_fk_1",
       references: {
-        table: "Accounts",
+        table: "Account",
         field: "id",
       }
     });
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('Transactions');
+    await queryInterface.dropTable('TransactionCounter');
   }
 };
