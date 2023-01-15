@@ -1,5 +1,4 @@
-const Joi = require('joi');
-const { balanceRequestBuilder } = require('../utils/requestBuilder');
+const { balanceRequestBuilder } = require('../utils/request-builder');
 const { BalanceRequestSchema } = require('../validators/commands');
 const { getAccountBalance } = require('../service/manage-account');
 

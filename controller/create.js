@@ -1,5 +1,4 @@
-const Joi = require('joi');
-const { createRequestBuilder } = require('../utils/requestBuilder');
+const { createRequestBuilder } = require('../utils/request-builder');
 const { CreateRequestSchema } = require('../validators/commands');
 
 const { createAccountByUserName } = require('../service/manage-account');

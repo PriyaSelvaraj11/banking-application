@@ -1,5 +1,4 @@
-const Joi = require('joi');
-const { withdrawRequestBuilder } = require('../utils/requestBuilder');
+const { withdrawRequestBuilder } = require('../utils/request-builder');
 const { WithdrawRequestSchema } = require('../validators/commands');
 const { withdrawAmount } = require('../service/transaction');
 

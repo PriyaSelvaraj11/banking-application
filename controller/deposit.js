@@ -1,5 +1,4 @@
-const Joi = require('joi');
-const { depositRequestBuilder } = require('../utils/requestBuilder');
+const { depositRequestBuilder } = require('../utils/request-builder');
 const { DepositRequestSchema } = require('../validators/commands');
 const { depositAmount } = require('../service/transaction');
 

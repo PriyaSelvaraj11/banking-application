@@ -1,4 +1,3 @@
-const Joi = require('joi');
 const createAccount = require('./create');
 const deposit = require('./deposit');
 const withdraw = require('./withdraw');

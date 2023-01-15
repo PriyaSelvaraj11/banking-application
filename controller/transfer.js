@@ -1,5 +1,4 @@
-const Joi = require('joi');
-const { transferRequestBuilder } = require('../utils/requestBuilder');
+const { transferRequestBuilder } = require('../utils/request-builder');
 const { TransferRequestSchema } = require('../validators/commands');
 const { transferAmount } = require('../service/transaction');
 
