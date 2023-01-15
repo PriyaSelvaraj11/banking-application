@@ -7,7 +7,7 @@ const {
     MIN_ACCOUNT_BALANCE,
     MAX_DEPOSITS_COUNT_PER_DAY,
     MAX_WITHDRAWALS_COUNT_PER_DAY,
-} = require("./appConstants");
+} = require("./app-constants");
 
 const ErrorConstants = {
     INVALID_PARAMATERS: 'Invalid Request Arguments',

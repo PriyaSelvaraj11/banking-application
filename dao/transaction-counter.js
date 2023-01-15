@@ -1,6 +1,7 @@
 const moment = require('moment');
-const { TransactionCounter, sequelize, Sequelize } = require("../models");
-const ErrorConstants = require("../constants/errorConstants");
+const { TransactionCounter, sequelize } = require("../models");
+const ErrorConstants = require("../constants/error-constants");
+const DateConstants = require("../constants/date-constants");
 
 async function findByAccountNumber(accountId) {
     try {
@@ -8,7 +9,7 @@ async function findByAccountNumber(accountId) {
             where:
             {
                 account_id: accountId,
-                record_date: moment().format('YYYY-MM-DD'),
+                record_date: moment().format(DateConstants.DATE_ONLY_FORMAT),
             }
         });
     } catch (exception) {

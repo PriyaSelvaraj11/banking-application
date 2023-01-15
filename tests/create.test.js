@@ -1,5 +1,5 @@
 const executeCommand = require('../controller/index.js');
-const  { deleteAccount } = require('../service/delete.js');
+const { deleteAccount } = require('../service/delete.js');
 
 const { expect, it } = require('@jest/globals');
 

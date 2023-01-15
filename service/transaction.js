@@ -1,7 +1,7 @@
 const { sequelize } = require("../models");
 
-const TransactionFacade = require("./transactionFacade");
-const AppConstants = require("../constants/appConstants");
+const TransactionFacade = require("./transaction-facade");
+const AppConstants = require("../constants/app-constants");
 
 /**
  * Deposit amount by accountId

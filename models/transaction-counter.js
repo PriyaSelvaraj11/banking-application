@@ -1,5 +1,6 @@
 'use strict';
 const moment = require('moment');
+const DateConstants = require("../constants/date-constants");
 const Account = require("./account");
 
 const {
@@ -30,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     record_date: {
       type: DataTypes.DATEONLY,
       get: function () {
-        return moment(this.getDataValue('date')).format('YYYY-MM-DD');
+        return moment(this.getDataValue('date')).format(DateConstants.DATE_ONLY_FORMAT);
       }
     }
   }, {

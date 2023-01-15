@@ -1,4 +1,4 @@
-const ErrorConstants = require('../constants/errorConstants');
+const ErrorConstants = require('../constants/error-constants');
 
 const createRequestBuilder = (args) => {
     if(!args || !args.length) throw new Error(ErrorConstants.INVALID_PARAMATERS);

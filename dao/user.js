@@ -1,5 +1,5 @@
 const { User } = require("../models");
-const ErrorConstants = require("../constants/errorConstants");
+const ErrorConstants = require("../constants/error-constants");
 
 async function createUser(userName, transaction) {
     try {

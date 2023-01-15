@@ -1,10 +1,11 @@
 const { Account } = require("../models");
-const ErrorConstants = require("../constants/errorConstants");
+const ErrorConstants = require("../constants/error-constants");
 
-async function createAccount({ userId, balance }, transaction = null) {
+async function createAccount(userId , transaction = null) {
     try {
         const account = {
-            user_id: userId, balance
+            user_id: userId,
+            balance: 0
         }
         if (transaction) {
             return await Account.create(

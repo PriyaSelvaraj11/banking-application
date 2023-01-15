@@ -1,5 +1,5 @@
-const AppConstants = require("../constants/appConstants");
-const ErrorConstants = require("../constants/errorConstants");
+const AppConstants = require("../constants/app-constants");
+const ErrorConstants = require("../constants/error-constants");
 
 /**
  * Validate deposit amount with allowed min and max deposit amount

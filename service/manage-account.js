@@ -3,7 +3,7 @@ const { sequelize } = require("../models");
 const UserRepo = require("../dao/user");
 const AccountRepo = require("../dao/account");
 
-const ErrorConstants = require("../constants/errorConstants");
+const ErrorConstants = require("../constants/error-constants");
 
 /**
  * Account creation by user name
@@ -16,9 +16,7 @@ async function createAccountByUserName(userName) {
     try {
         const userId = await UserRepo.createUser(userName, transaction);
         if (userId) {
-            createdAccount = await AccountRepo.createAccount(
-                { userId, balance: 0 }, transaction
-            );
+            createdAccount = await AccountRepo.createAccount(userId , transaction);
         }
         await transaction.commit();
         return createdAccount?.id;

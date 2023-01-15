@@ -4,7 +4,7 @@ const UserRepo = require("../dao/user");
 const AccountRepo = require("../dao/account");
 const TransactionCounterRepo = require("../dao/transaction-counter");
 
-const ErrorConstants = require("../constants/errorConstants");
+const ErrorConstants = require("../constants/error-constants");
 const TransactionUtils = require("../utils/transaction");
 
 /**
